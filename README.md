@@ -63,3 +63,94 @@ Unique body parts found: 18
   Quadriceps: 2 poses
   Shoulders: 13 poses
 ```
+
+```
+Focus Areas Coverage:
+Unique focus areas found: 16
+  Balance/Stability: 25 poses
+  Breathing Improvement: 1 poses
+  Cardiovascular Fitness: 4 poses
+  Circulation Enhancement: 3 poses
+  Coordination: 4 poses
+  Detoxification: 2 poses
+  Digestion Support: 12 poses
+  Emotional Release: 5 poses
+  Endurance Building: 4 poses
+  Energy Building: 3 poses
+  Flexibility/Stretching: 38 poses
+  Meditation/Focus: 9 poses
+  Posture Improvement: 10 poses
+  Relaxation/Restorative: 4 poses
+  Strength Building: 62 poses
+  Stress Relief/Calming: 22 poses
+```
+
+```
+Precautions Coverage:
+Unique precautions found: 21
+  Ankle injuries: 5 poses
+  Asthma: 1 poses
+  Back injuries: 26 poses
+  Balance disorders: 4 poses
+  Carpal tunnel: 5 poses
+  Diarrhea: 1 poses
+  Generally safe for all: 38 poses
+  Glaucoma/eye conditions: 2 poses
+  Hamstring injuries: 2 poses
+  Heart conditions: 4 poses
+  High blood pressure: 9 poses
+  Hip injuries: 3 poses
+  Insomnia: 1 poses
+  Knee problems/injuries: 31 poses
+  Low blood pressure: 8 poses
+  Menstruation: 1 poses
+  Migraine: 1 poses
+  Neck injuries: 11 poses
+  Pregnancy: 10 poses
+  Shoulder injuries: 12 poses
+  Wrist injuries: 5 poses
+```
+
+```
+Pain Points Coverage:
+Unique pain points found: 39
+  Ankle stiffness: 3 poses
+  Arm weakness: 14 poses
+  Balance issues: 20 poses
+  Calf tightness: 1 poses
+  Cardiovascular fitness: 4 poses
+  Chest tightness: 19 poses
+  Core weakness: 19 poses
+  Depression: 1 poses
+  Digestive issues: 16 poses
+  Emotional stress: 2 poses
+  Fear/confidence issues: 3 poses
+  Hamstring tightness: 14 poses
+  High blood pressure: 1 poses
+  Hip flexor tightness: 9 poses
+  Hip tightness: 24 poses
+  IT band tightness: 4 poses
+  Insomnia: 1 poses
+  Knee stiffness: 2 poses
+  Leg weakness: 21 poses
+  Low energy: 6 poses
+  Lower back pain: 23 poses
+  Neck stiffness: 3 poses
+  Overstimulation: 1 poses
+  Poor circulation: 8 poses
+  Poor concentration: 1 poses
+  Poor coordination: 3 poses
+  Poor posture: 18 poses
+  Quadricep tightness: 5 poses
+  Respiratory issues: 2 poses
+  Sciatica: 2 poses
+  Shallow breathing: 1 poses
+  Shoulder tension/stiffness: 15 poses
+  Side body tightness: 6 poses
+  Spinal stiffness: 24 poses
+  Stress/anxiety: 28 poses
+  Tension headaches: 1 poses
+  Thigh tightness: 3 poses
+  Upper back pain/stiffness: 13 poses
+  Wrist stiffness/pain: 2 poses
+```
