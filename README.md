@@ -41,6 +41,7 @@ Target Variable: None explicitly defined in the dataset. The dataset focuses on 
 - Precautions: Health conditions or injuries to consider before attempting the pose (e.g., High blood pressure, Knee problems/injuries).
 - Pain_Points: Common physical or mental issues the pose may help address (e.g., Lower back pain, Stress/anxiety, Balance issues).
 
+```
 Body Parts Coverage:
 Unique body parts found: 18
   Ankles/Feet: 5 poses
@@ -61,3 +62,4 @@ Unique body parts found: 18
   Nervous System: 9 poses
   Quadriceps: 2 poses
   Shoulders: 13 poses
+```
