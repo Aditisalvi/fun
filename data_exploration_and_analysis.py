@@ -23,8 +23,8 @@ print("Loading datasets from Kaggle...")
 # Load datasets
 try:
     # Load the datasets
-    users_df = pd.read_csv('/kaggle/input/users-data/users_data.csv')
-    asanas_df = pd.read_csv('/kaggle/input/final-asana-dataset/final_asana_dataset.csv')
+    users_df = pd.read_csv('/kaggle/input/users-data/bodyPerformance.csv')
+    asanas_df = pd.read_csv('/kaggle/input/final-asana-dataset/new_final_dataset (1).csv')
     
     print("✓ Datasets loaded successfully!")
     print(f"Users dataset shape: {users_df.shape}")
@@ -39,17 +39,17 @@ except FileNotFoundError:
     n_users = 1000
     users_df = pd.DataFrame({
         'Age': np.random.randint(20, 65, n_users),
-        'Gender': np.random.choice(['F', 'M'], n_users),
-        'Height (cm)': np.random.normal(170, 10, n_users),
-        'Weight (kg)': np.random.normal(70, 15, n_users),
-        'Body Fat (%)': np.random.normal(20, 8, n_users),
+        'gender': np.random.choice(['F', 'M'], n_users),
+        'height_cm': np.random.normal(170, 10, n_users),
+        'weight_kg': np.random.normal(70, 15, n_users),
+        'body_fat_%': np.random.normal(20, 8, n_users),
         'Diastolic (mmHg)': np.random.normal(80, 10, n_users),
         'Systolic (mmHg)': np.random.normal(120, 15, n_users),
         'Grip Force (kg)': np.random.normal(35, 10, n_users),
         'Sit and Bend Forward (cm)': np.random.normal(15, 8, n_users),
         'Sit-ups Count': np.random.randint(10, 50, n_users),
         'Broad Jump (cm)': np.random.normal(180, 30, n_users),
-        'Class': np.random.choice(['A', 'B', 'C', 'D'], n_users)
+        'class': np.random.choice(['A', 'B', 'C', 'D'], n_users)
     })
     
     # Sample asanas data (simplified)
@@ -115,13 +115,13 @@ print("\n=== ADVANCED DATA ANALYSIS ===")
 print("\n1. Physical Fitness Distribution Analysis:")
 
 # Create fitness score
-users_df['BMI'] = users_df['Weight (kg)'] / (users_df['Height (cm)'] / 100) ** 2
+users_df['BMI'] = users_df['weight_kg'] / (users_df['height_cm'] / 100) ** 2
 users_df['Fitness_Score'] = (
-    users_df['Sit-ups Count'] * 0.3 +
-    users_df['Broad Jump (cm)'] * 0.002 +
-    users_df['Grip Force (kg)'] * 0.5 +
-    users_df['Sit and Bend Forward (cm)'] * 0.5 -
-    users_df['Body Fat (%)'] * 0.2
+    users_df['sit_ups_counts'] * 0.3 +
+    users_df['broad_jump_cm'] * 0.002 +
+    users_df['gripForce'] * 0.5 +
+    users_df['sit_and_bend_forward_cm'] * 0.5 -
+    users_df['body_fat_%'] * 0.2
 )
 
 # Normalize fitness score
@@ -132,7 +132,7 @@ users_df['Fitness_Score_Normalized'] = (
 print(f"Average BMI: {users_df['BMI'].mean():.2f}")
 print(f"Average Fitness Score: {users_df['Fitness_Score'].mean():.2f}")
 print(f"Performance Class Distribution:")
-print(users_df['Class'].value_counts())
+print(users_df['class'].value_counts())
 
 # 2. Asanas Complexity Analysis
 print("\n2. Asanas Complexity and Characteristics:")
@@ -151,11 +151,11 @@ if 'pose_type' in asanas_df.columns:
 
 # 3. Age Group Analysis
 print("\n3. Age Group Analysis:")
-print(f"Users age range: {users_df['Age'].min()} - {users_df['Age'].max()}")
-print(f"Average age: {users_df['Age'].mean():.1f}")
+print(f"Users age range: {users_df['age'].min()} - {users_df['age'].max()}")
+print(f"Average age: {users_df['age'].mean():.1f}")
 
 # Create age groups
-users_df['Age_Group'] = pd.cut(users_df['Age'], 
+users_df['Age_Group'] = pd.cut(users_df['age'], 
                                bins=[0, 30, 40, 50, 65], 
                                labels=['20-30', '30-40', '40-50', '50+'])
 print("\nAge Group Distribution:")
@@ -163,12 +163,12 @@ print(users_df['Age_Group'].value_counts())
 
 # 4. Gender-based Analysis
 print("\n4. Gender-based Physical Characteristics:")
-gender_stats = users_df.groupby('Gender').agg({
-    'Height (cm)': ['mean', 'std'],
-    'Weight (kg)': ['mean', 'std'],
-    'Body Fat (%)': ['mean', 'std'],
+gender_stats = users_df.groupby('gender').agg({
+    'height_cm': ['mean', 'std'],
+    'weight_kg': ['mean', 'std'],
+    'body_fat_%': ['mean', 'std'],
     'Fitness_Score': ['mean', 'std'],
-    'Class': lambda x: x.mode().iloc[0]
+    'class': lambda x: x.mode().iloc[0]
 }).round(2)
 
 print(gender_stats)
@@ -180,14 +180,14 @@ print("\n=== FEATURE ENGINEERING FOR RECOMMENDATION SYSTEM ===")
 print("\n1. Creating User Profile Features:")
 
 # Physical capability indicators
-users_df['Flexibility_Score'] = users_df['Sit and Bend Forward (cm)']
-users_df['Strength_Score'] = (users_df['Grip Force (kg)'] + users_df['Sit-ups Count']) / 2
-users_df['Balance_Score'] = users_df['Broad Jump (cm)'] / 10  # Normalize
-users_df['Cardio_Score'] = 100 - users_df['Body Fat (%)']  # Inverse relationship
+users_df['Flexibility_Score'] = users_df['sit_and_bend_forward_cm']
+users_df['Strength_Score'] = (users_df['gripForce'] + users_df['sit_ups_counts']) / 2
+users_df['Balance_Score'] = users_df['broad_jump_cm'] / 10  # Normalize
+users_df['Cardio_Score'] = 100 - users_df['body_fat_%']  # Inverse relationship
 
 # Health risk indicators
 users_df['BP_Risk'] = np.where(
-    (users_df['Systolic (mmHg)'] > 140) | (users_df['Diastolic (mmHg)'] > 90), 
+    (users_df['systolic'] > 140) | (users_df['diastolic'] > 90), 
     'High_BP', 'Normal_BP'
 )
 
@@ -197,7 +197,7 @@ users_df['Weight_Status'] = pd.cut(users_df['BMI'],
 
 # Experience level mapping (based on fitness class)
 experience_mapping = {'A': 'Advanced', 'B': 'Intermediate', 'C': 'Beginner', 'D': 'Beginner'}
-users_df['Yoga_Experience_Level'] = users_df['Class'].map(experience_mapping)
+users_df['Yoga_Experience_Level'] = users_df['class'].map(experience_mapping)
 
 print("User profile features created:")
 print(f"- Flexibility Score: {users_df['Flexibility_Score'].mean():.2f} ± {users_df['Flexibility_Score'].std():.2f}")
@@ -304,7 +304,7 @@ print("✓ Ready for recommendation system development")
 # Display sample processed data
 print("\n=== SAMPLE PROCESSED DATA ===")
 print("Sample user profile:")
-print(users_df[['Age', 'Gender', 'BMI', 'Fitness_Score_Normalized', 'Yoga_Experience_Level', 'BP_Risk']].head(3))
+print(users_df[['age', 'gender', 'BMI', 'Fitness_Score_Normalized', 'Yoga_Experience_Level', 'BP_Risk']].head(3))
 
 print("\nSample asana features:")
 display_cols = ['asana_name', 'difficulty_level', 'Complexity_Score'] + [col for col in asanas_df.columns if col.startswith('Focus_')][:3]
