@@ -7,8 +7,8 @@ Age Range: 20 to 64 years.
 Gender: F (Female), M (Male).
 Target Variable (Class): A (best), B, C, D (worst). This represents the performance grade, with A being the best and D being the lowest.
 ### Columns and Description
-Age: Age of the individual (in years).
-Gender: Gender of the individual (F for female, M for male).
+- Age: Age of the individual (in years).
+- Gender: Gender of the individual (F for female, M for male).
 Height (cm): Height of the individual in centimeters (To convert to feet, divide by 30.48).
 Weight (kg): Weight of the individual in kilograms.
 Body Fat (%): Percentage of body fat in the individual.
