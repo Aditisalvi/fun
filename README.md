@@ -40,3 +40,24 @@ Target Variable: None explicitly defined in the dataset. The dataset focuses on 
 - Focus_Area: The primary goals or effects of the pose (e.g., Strength Building, Stress Relief/Calming, Flexibility/Stretching).
 - Precautions: Health conditions or injuries to consider before attempting the pose (e.g., High blood pressure, Knee problems/injuries).
 - Pain_Points: Common physical or mental issues the pose may help address (e.g., Lower back pain, Stress/anxiety, Balance issues).
+
+Body Parts Coverage:
+Unique body parts found: 18
+  Ankles/Feet: 5 poses
+  Arms/Wrists: 26 poses
+  Back/Spine: 53 poses
+  Calves: 2 poses
+  Chest/Heart: 19 poses
+  Core/Abdomen: 22 poses
+  Glutes/Buttocks: 6 poses
+  Hamstrings: 13 poses
+  Hip Flexors: 6 poses
+  Hips: 26 poses
+  IT Band: 1 poses
+  Intercostal Muscles: 1 poses
+  Knees: 1 poses
+  Legs/Thighs: 36 poses
+  Neck: 2 poses
+  Nervous System: 9 poses
+  Quadriceps: 2 poses
+  Shoulders: 13 poses
